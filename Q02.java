@@ -1,38 +1,37 @@
-package questions;
+package questions_maps;
 
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Q02 {
 
+    //There is a Map which contains product names as key and number of the products as value.
+    //Type code to check if ‘Laptop’ is among the products
+    //And get its value
+    //And then print the values in ascending order
+
+
     public static void main(String[] args) {
 
-        //Ask user to enter 2 numbers, and write a Java Program to swap two numbers
+        Map<String, Integer> product = new HashMap<>();
+        product.put("Fridge", 90);
+        product.put("TV", 27);
+        product.put("Washing Machine", 36);
+        product.put("Computer", 16);
+        product.put("LapTop", 19);
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter the first number please!");
-        double num1 = input.nextDouble();
-        System.out.println("Enter the second number please!");
-        double num2 = input.nextDouble();
+        String expectedProduct = "LapTop";
 
-        System.out.println("Before swapping num1 is: " + num1 + " " + "num2 is: " + num2);
+        if(product.containsKey(expectedProduct)){
+            System.out.println(expectedProduct + " exists and its value is " + product.get(expectedProduct));
+        }else{
+            System.out.println(expectedProduct + " does not exists");
+        }
 
-        //1.Way: By using third variable
-//        double temp= 0;
-//        temp = num1;
-//        num1 = num2;
-//        num2 = temp;
-//
-//        System.out.println("After swapping num1 is: " + num1 + " num2 is: " + num2);
-
-        System.out.println();
-
-        //2.Way: Without using third variable
-
-        num1 = num1 + num2;
-        num2 = num1 - num2;
-        num1 = num1 - num2;
-
-        System.out.println("After swapping num1 is: " + num1 + " num2 is: " + num2);
+        Object[] ascendingValues = product.values().toArray();
+        Arrays.sort(ascendingValues);
+        System.out.println(Arrays.toString(ascendingValues));
 
 
 

@@ -1,42 +1,57 @@
-package questions;
+package questions_maps;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Q06 {
 
-    static Scanner input = new Scanner(System.in);
+    // How to check the number of repeated elements in a List
 
     public static void main(String[] args) {
 
-        /*
-        Create a program checks if a String is palindrome or not.
-	 	If a word, phrase, or sequence that reads the same backward as forward, then it is called "Palindrome",
-	    For example, "madam" or "nurses run".
-         */
-        System.out.println("Enter a String to check if it is a palindrome or not!");
-        String str = input.nextLine().toLowerCase();
-        str = str.replaceAll("\\s", "");
-        System.out.println(str);
+        List<Integer> myList = new ArrayList<>();
+        myList.add(12);
+        myList.add(21);
+        myList.add(12);
+        myList.add(13);
+        myList.add(12);
+        myList.add(21);
+        myList.add(35);
 
-        palindrome(str);
+
+        Map<Integer, Integer> myMap = new HashMap<>();
+
+        for(Integer w : myList){
+
+            Integer numOfOccurrence = myMap.get(w);
+
+            if(numOfOccurrence == null){
+                myMap.put(w, 1);
+            }else{
+                myMap.put(w, numOfOccurrence + 1);
+            }
+        }
+        System.out.println(myMap);
+
+        Collection<Integer> myValues = myMap.values();
+        Integer counter =0;
+        for(Integer w : myValues){
+            if(w>1){
+                counter++;
+            }
+        }
+        System.out.println("There are " + counter + " repeated elements");
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
-
-    public static void palindrome(String str) {
-
-        String reverse = "";
-        for (int i = str.length()-1; i >= 0; i--){
-            reverse += str.charAt(i);
-        }
-        //System.out.println(reverse);
-
-        if(str.equals(reverse)){
-            System.out.println("It is palindrome");
-        }else{
-            System.out.println("It is not palindrome");
-        }
-
-
-    }
-
 }

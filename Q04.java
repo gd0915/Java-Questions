@@ -1,46 +1,32 @@
-package questions;
+package questions_maps;
 
-import java.util.Scanner;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Q04 {
 
+    //There is a Map which contains product names as key and number of the products as value.
+    //Print the product names in alphabetical order.
+
     public static void main(String[] args) {
 
+        Map<String, Integer> product = new HashMap<>();
+        product.put("Fridge", 90);
+        product.put("TV", 27);
+        product.put("Washing Machine", 36);
+        product.put("Computer", 16);
+        product.put("LapTop", 19);
 
-        //Ask the user to enter an integer to check if it is a prime number or not.
+        Object [] keys = product.keySet().toArray();
+        Arrays.sort(keys);
+        System.out.println(Arrays.toString(keys));
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter an integer please!");
-        int number = input.nextInt();
 
-        primeNumber(number);
+
+
+
 
 
     }
-
-        public static void primeNumber(int number) {
-            int counter = 0;
-
-            if (number > 0) {
-                if (number == 1) {
-                    System.out.println("This number is not a prime number");
-                } else {
-                    for (int i = 2; i < number; i++) {
-                        if (number % i == 0) {
-                            counter++;
-                        }
-                    }
-                    if (counter == 0) {
-                        System.out.println(number + " is a prime number");
-                    } else {
-                        System.out.println(number + " is not a prime number");
-                    }
-                }
-            } else {
-                System.out.println("Enter a positive integer please!");
-            }
-
-
-        }
-
 }

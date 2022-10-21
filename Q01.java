@@ -1,30 +1,32 @@
-package questions;
+package questions_maps;
 
-import java.util.Scanner;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Q01 {
 
+    //There is a Map which contains product names as key and number of the products as value.
+    //Type code to find the total number of products
+
     public static void main(String[] args) {
 
-        //Ask user to enter a String and type a Java Program to reverse the String
+        Map<String, Integer> product = new HashMap<>();
+        product.put("Fridge", 90);
+        product.put("TV", 27);
+        product.put("Washing Machine", 36);
+        product.put("Computer", 16);
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter a String to reverse please!");
-        String str = input.nextLine();
+        Collection<Integer> values =  product.values();
+        System.out.println(values);
 
+        int sum=0;
+        for(Integer w : values) {
 
-        //1.Way
-        String reversed = "";
-        for(int i=str.length()-1; i>=0; i--){
-            String ch = str.substring(i, i+1);
-            reversed = reversed + ch;
+            sum += w;
         }
-        System.out.println(reversed);
+        System.out.println(sum);//169
 
-        //2.Way: by using StringBuilder
-        StringBuilder strB = new StringBuilder();
-        strB.append(str);
-        System.out.println(strB.reverse());
 
 
     }

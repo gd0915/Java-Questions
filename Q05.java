@@ -1,44 +1,44 @@
-package questions;
+package questions_maps;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Q05 {
 
-    static Scanner input = new Scanner(System.in);
+    //Type code to count the number of occurrences of the words in a String. (Case insensitive)
 
     public static void main(String[] args) {
 
-        /*
-        Create a function that takes an array and
-	 	returns the difference between the biggest and the smallest numbers.
-	    Ask user to enter array elements.
-         */
+        String str = "Apex is easy. Type codes to learn apex. To earn money learn apex.";
 
-        System.out.println("Enter the number of elements you want to see in your Array");
-        int numOfElements = input.nextInt();
+        String [] arr = str.toLowerCase().replaceAll("\\p{Punct}", "").split(" ");
 
-        getDifference(4);
+        Map<String, Integer> wordOccurrence = new HashMap<>();
 
-    }
+        for( String w : arr){
 
+            Integer numOfOccurrence = wordOccurrence.get(w);
 
-        private static void getDifference(int numOfElements ) {
-            int arr[] = new int[numOfElements];
-
-            for (int i = 0; i < arr.length; i++) {
-                System.out.println("Enter " + (i + 1) + " . element");
-                arr[i] = input.nextInt();
+            if(numOfOccurrence == null){
+                wordOccurrence.put(w, 1);
+            }else{
+                wordOccurrence.put(w, numOfOccurrence+1);
             }
-            System.out.println(Arrays.toString(arr));
-
-            Arrays.sort(arr);
-            System.out.println(Arrays.toString(arr));
-
-            int differenceGreatestAndSmallestNum = arr[arr.length - 1] - arr[0];
-            System.out.println("The difference between the greatest and smallest numbers in the Array " + differenceGreatestAndSmallestNum);
-
 
         }
+        System.out.println(wordOccurrence);
 
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 }

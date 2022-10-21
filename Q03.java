@@ -1,38 +1,41 @@
-package questions;
+package questions_maps;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Q03 {
 
+    //There is a Map which contains product names as key and prices of the products as value.
+    //Print the prices in ascending order
+
     public static void main(String[] args) {
 
-        //Ask the user how many fibonacci numbers he wants to see. Then write the code that prints
-        //these fibonacci numbers. Example: if user enters 6 output will be 1 1 2 3 5 8
+        Map<String, Integer> product = new HashMap<>();
+        product.put("LapTop", 3500);
+        product.put("Fridge", 4000);
+        product.put("TV", 2500);
+        product.put("Sofa", 1800);
+        product.put("Drawer", 900);
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("How many Fibonacci number do you want to see");
-        int number = input.nextInt();
+        System.out.println(product);
+        System.out.println(product.values());
 
-        fibonacci(number);
+        Object[] productPrices =  product.values().toArray();
+        Arrays.sort(productPrices);
+        System.out.println(Arrays.toString(productPrices));
 
 
 
-    }
 
-    public static void fibonacci (int number){
 
-        int fibo1 = 1;
-        int fibo2 = 1;
-        int fibonacci = 0;
 
-        System.out.print(fibo1 + " ");
-        System.out.print(fibo2 + " ");
 
-        for(int i = 1; i<=number; i++){
-            fibonacci = fibo1+fibo2;
-            fibo1= fibo2;
-            fibo2= fibonacci;
-            System.out.print(fibonacci + " ");
-        }
+
+
+
+
+
+
+
+
     }
 }
